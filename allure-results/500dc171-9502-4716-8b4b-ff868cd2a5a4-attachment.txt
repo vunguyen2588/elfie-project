@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//android.view.View[@content-desc=\"Elfie https://www.elfie.co Elfie • Digital health • It pays to get better\"]"
+}

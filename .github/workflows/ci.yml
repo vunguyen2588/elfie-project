@@ -19,10 +19,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '20.17.0'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run WebdriverIO tests
-        run: npm run wdio
+        run: npx wdio run wdio.conf.js

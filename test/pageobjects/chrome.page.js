@@ -1,8 +1,8 @@
 class ChromePage {
     get searchBar() { return $('//android.view.View[@resource-id="tsf"]/android.view.View[2]/android.widget.EditText'); }
-    get firstResult() { return $('//android.view.View[@content-desc="Elfie https://www.elfie.co Elfie • Digital health • It pays to get better"]'); }
+    get firstResult() { return $('//android.view.View[contains(@content-desc, "Elfie"]'); }
     get logo() { return $('//android.widget.Image[@text="Elfie icon"]'); }
-    get hamburgerMenu() { return $('//android.webkit.WebView[@text="Elfie • Digital health • It pays to get better"]/android.view.View/android.view.View[2]/android.view.View[4]/android.view.View'); }
+    get hamburgerMenu() { return $('//android.webkit.WebView[contains(@text, "Elfie")]/android.view.View/android.view.View[2]/android.view.View[4]/android.view.View'); }
     get closeMenu() { return $('button#close'); }
     get copyrightText() { return $('//android.widget.TextView[@text="Copyright © 2024 Elfie Pte. Ltd."]'); }
 
@@ -38,6 +38,7 @@ class ChromePage {
     }
 
     async scrollToBottom() {
+        await this.copyrightText.waitForDisplayed({ timeout: 20000 });
         await this.copyrightText.scrollIntoView();
         // await browser.execute(() => {
         //     window.scrollTo(0, document.body.scrollHeight);
